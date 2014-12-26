@@ -1,0 +1,95 @@
+<template name="main">
+    {{#if handle }}
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <h1>Hello {{ handle }}</h1>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="well room-list">
+                    <div class="title">Rooms</div>
+
+                    {{#each roomList}}
+                        {{> room }}
+                    {{/each}}
+
+                    {{> roomInput }}
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="well main-panel">
+                    <div class="title">
+                        {{ currentRoom }}
+                        <div class="logout"
+                             id="logout">Logout</div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="well chat-display"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text"
+                                   class="form-control message-input"
+                                   id="message-input"
+                                   placeholder="[Enter Your Message Here]" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="well member-list">
+                    <div class="title">Members</div>
+
+                    {{#each memberList}}
+                        {{> member }}
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <div class="row">
+            <div class="center-block">
+                <div class="col-md-4">
+                    <input type="text"
+                           id="handle"
+                           class="form-control message-input"
+                           placeholder="[ Username ]"/>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+
+<template name="room">
+    <p class="room">
+        <span class="join"># {{name}}</span>
+        {{#unless is_system }}
+            <span class="glyphicon glyphicon-remove pull-right delete-room"></span>
+            <div class="clearfix"></div>
+        {{/unless}}
+    </p>
+</template>
+
+<template name="member">
+    <p class="room">
+        <span class="join">@{{member.handle}}</span>
+    </p>
+</template>
+
+
+<template name="roomInput">
+    <input class="form-control add-room-input"
+           id="add-room-input"
+           placeholder="Add Room Name"
+           type="text" />
+</template>

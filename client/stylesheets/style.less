@@ -1,0 +1,106 @@
+@import "variables";
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
+@import url("http://fonts.googleapis.com/css?family=Pacifico");
+
+body {
+  color: @orange;
+  margin-top: @header-margin;
+  font-family: "Oswald";
+  background: @pomegranate;
+}
+
+h1 {
+  font-family: "Pacifico";
+  color: @clouds;
+  margin-bottom: 25px;
+}
+
+.logout {
+  float: right;
+  font-size: smaller;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: @midnight_blue;
+}
+
+.delete-room {
+  cursor: pointer;
+  color: @pomegranate;
+}
+
+.delete-room:hover {
+  color: @alizarin;
+}
+
+.join:hover {
+  cursor: pointer;
+  color: @clouds;
+}
+
+
+.message-input {
+  background: @wet_asphalt;
+  color: @silver;
+  height: 55px;
+  border: 0;
+  outline: none;
+}
+
+.add-room-input {
+  margin-top: @title-lower-margin !important;
+  background: @silver;
+  color: @wet_asphalt;
+  border: 0;
+  outline: none !important;
+}
+
+.room {
+  font-weight: 300;
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.base-panel {
+  .title {
+    font-weight: 300;
+    font-size: 24px;
+//    float: right;
+    margin-bottom: @title-lower-margin;
+  }
+  border: 0;
+  height: 100%;
+}
+
+.sidebar-color {
+  background: @wet_asphalt;
+  color: @silver;
+}
+
+.room-list {
+  .base-panel;
+  .sidebar-color;
+}
+
+.main-panel {
+  .base-panel;
+  color: @wet_asphalt;
+  background: @silver;
+}
+
+.member-list {
+  .base-panel;
+  .sidebar-color;
+}
+
+.chat-display {
+  .base-panel;
+  .sidebar-color;
+  height: @chat-display-height;
+}
+
+.chat-form {
+  .base-panel;
+  .sidebar-color;
+}
