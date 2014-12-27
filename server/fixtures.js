@@ -1,4 +1,4 @@
-if (Rooms.find().count() === 0) {
+if (Rooms.find().count() == 0) {
     Rooms.insert({name: "Welcome", is_system: true});
     Rooms.insert({name: "Meteorites", is_system: false});
     Rooms.insert({name: "JavaScripters", is_system: false});

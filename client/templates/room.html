@@ -1,0 +1,30 @@
+<template name="myRoom">
+<p class="room">
+    <span class="join"># {{name}}</span>
+  {{#unless is_system }}
+    {{#if createdBy }}
+        <span class="glyphicon glyphicon-remove pull-right delete-room"></span>
+        <div class="clearfix"></div>
+    {{/if}}
+  {{/unless}}
+    </p>
+</template>
+
+<template name="generalRoom">
+    <p class="room">
+        <span class="join"># {{name}}</span>
+    </p>
+</template>
+
+<template name="systemRoom">
+    <p class="room">
+        <span class="join"># {{name}}</span>
+    </p>
+</template>
+
+<template name="roomInput">
+    <input class="form-control add-room-input"
+           id="add-room-input"
+           placeholder="Add Room Name"
+           type="text" />
+</template>

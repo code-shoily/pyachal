@@ -12,8 +12,16 @@
                 <div class="well room-list">
                     <div class="title">Rooms</div>
 
+                    {{#each welcomeRoomList}}
+                        {{> systemRoom }}
+                    {{/each}}
+
                     {{#each roomList}}
-                        {{> room }}
+                        {{> generalRoom }}
+                    {{/each}}
+
+                    {{#each myRoomList}}
+                        {{> myRoom }}
                     {{/each}}
 
                     {{> roomInput }}
@@ -57,39 +65,10 @@
         </div>
     {{else}}
         <div class="row">
-            <div class="center-block">
-                <div class="col-md-4">
-                    <input type="text"
-                           id="handle"
-                           class="form-control message-input"
-                           placeholder="[ Username ]"/>
-                </div>
+            <div class="well login-panel center-block">
+                <h2>Hello!!!</h2>
+                Welcome to Pyachal, please {{> loginButtons }} or, you know... get out?
             </div>
         </div>
     {{/if}}
-</template>
-
-
-<template name="room">
-    <p class="room">
-        <span class="join"># {{name}}</span>
-        {{#unless is_system }}
-            <span class="glyphicon glyphicon-remove pull-right delete-room"></span>
-            <div class="clearfix"></div>
-        {{/unless}}
-    </p>
-</template>
-
-<template name="member">
-    <p class="room">
-        <span class="join">@{{member.handle}}</span>
-    </p>
-</template>
-
-
-<template name="roomInput">
-    <input class="form-control add-room-input"
-           id="add-room-input"
-           placeholder="Add Room Name"
-           type="text" />
 </template>

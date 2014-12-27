@@ -12,3 +12,5 @@ mizzao:bootstrap-3
 underscore
 less
 iron:router
+accounts-ui
+accounts-password
