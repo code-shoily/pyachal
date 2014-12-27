@@ -1,6 +1,6 @@
 <template name="myRoom">
-<p class="room">
-    <span class="join"># {{name}}</span>
+<p class="my-room">
+    <span class="join">#{{name}}</span>
   {{#unless is_system }}
     {{#if createdBy }}
         <span class="glyphicon glyphicon-remove pull-right delete-room"></span>
@@ -12,13 +12,13 @@
 
 <template name="generalRoom">
     <p class="room">
-        <span class="join"># {{name}}</span>
+        <span class="join">#{{name}}</span>
     </p>
 </template>
 
 <template name="systemRoom">
-    <p class="room">
-        <span class="join"># {{name}}</span>
+    <p class="system-room">
+        <span class="join">#{{name}}</span>
     </p>
 </template>
 

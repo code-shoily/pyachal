@@ -16,29 +16,35 @@
                         {{> systemRoom }}
                     {{/each}}
 
-                    {{#each roomList}}
-                        {{> generalRoom }}
-                    {{/each}}
-
                     {{#each myRoomList}}
                         {{> myRoom }}
+                    {{/each}}
+
+                    {{#each roomList}}
+                        {{> generalRoom }}
                     {{/each}}
 
                     {{> roomInput }}
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="well main-panel">
                     <div class="title">
                         {{ currentRoom }}
                         <div class="logout"
-                             id="logout">Logout</div>
+                             id="logout">
+                            <span class="glyphicon glyphicon-off danger"></span>
+                             </div>
                         <div class="clearfix"></div>
-                    </div>
 
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="well chat-display"></div>
+                            <div class="well chat-display">
+                                {{#each messages}}
+                                    {{> message }}
+                                {{/each}}
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -49,10 +55,9 @@
                                    placeholder="[Enter Your Message Here]" />
                         </div>
                     </div>
-
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="well member-list">
                     <div class="title">Members</div>
 
@@ -64,10 +69,21 @@
             </div>
         </div>
     {{else}}
-        <div class="row">
+        <div class="row vertical-center">
             <div class="well login-panel center-block">
                 <h2>Hello!!!</h2>
-                Welcome to Pyachal, please {{> loginButtons }} or, you know... get out?
+                <p>
+                    This is a really really really dumb-ass chat application written with MeteorJS.
+                    I made it as a learning tool for myself as well as to demo it up in this Meteor meetup
+                    we are doing in Dhaka. The github repository is here and I will link up the presentation soon!
+                </p>
+                <p>
+                    To check it out, please {{> loginButtons }} or, you know... get out?
+                </p>
+                <div class="screw-copyrights">
+                    <span class="glyphicon glyphicon-thumbs-down"></span> with Copyrights. <i>No Rights Reserved</i> (Like that even mattered)
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
     {{/if}}

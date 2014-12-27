@@ -5,20 +5,46 @@ var joinRoom = function() {
     Session.set("currentRoom", this.name);
     Session.set("roomID", this._id);
 
-    RoomMembers.remove({member: Meteor.user()});
+    RoomMembers.find({member: Meteor.user()}).forEach(function(doc) {
+        RoomMembers.remove({_id: doc._id});
+    });
+
     RoomMembers.insert({
         room: Rooms.findOne({_id: this._id}),
         member: Meteor.user()
     });
 }
 
+Template.main.events = {
+    "click #logout": function(event) {
+        Session.set("handle", false);
+
+        RoomMembers.find({member: Meteor.user()}).forEach(function(document) {
+            RoomMembers.remove({_id: document._id});
+        });
+
+        Meteor.logout();
+    },
+    "keypress input#message-input": function(event) {
+        var message = $("#message-input").val();
+
+        if (event.which == 13) {
+            Messages.insert({
+                room: Session.get("currentRoom"),
+                member: Meteor.user(),
+                message: message,
+                timestamp: new Date()
+            });
+
+            $("#message-input").val("");
+        }
+    }
+};
+
 Template.myRoom.events = {
     "click .join": joinRoom,
     "click .delete-room": function() {
-        var decision = confirm("Are you sure you want to delete #"
-        + this.name
-        + "? You're lucky it's for DEMO purposes otherwise I wouldn't "
-        + "have even let you add, let alone delete!");
+        var decision = confirm("Are you sure you want to delete #" + this.name + "?");
 
         if (decision) {
             Rooms.remove({_id: this._id});
@@ -32,7 +58,7 @@ Template.roomInput.events = {
         if (event.which == 13) {
             var roomToAdd = $("#add-room-input").val();
 
-            if (Rooms.find({name: roomToAdd}) > 0) {
+            if (Rooms.find({name: roomToAdd}).count() > 0) {
                 alert("Room with this name already exists!");
             } else if (Rooms.find({}).count() > Config["room_limit"]) {
                 alert("Room limit exceded!");

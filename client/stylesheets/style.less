@@ -1,12 +1,20 @@
 @import "variables";
 @import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
 @import url("http://fonts.googleapis.com/css?family=Pacifico");
+@import url("http://fonts.googleapis.com/css?family=PT+Mono");
 
 body {
-  color: @orange;
-  margin-top: @header-margin;
+  color: @clouds;
   font-family: "Oswald";
   background: @pomegranate;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
 
 h1 {
@@ -23,12 +31,8 @@ h2 {
 
 .logout {
   float: right;
-  font-size: smaller;
+  font-size: larger;
   cursor: pointer;
-}
-
-.logout:hover {
-  color: @midnight_blue;
 }
 
 .delete-room {
@@ -45,6 +49,17 @@ h2 {
   color: @clouds;
 }
 
+.online-status {
+  color: @sun_flower;
+}
+
+.danger {
+  color: @pomegranate;
+}
+
+.danger:hover {
+  color: @alizarin;
+}
 
 .message-input {
   background: @wet_asphalt;
@@ -68,6 +83,23 @@ h2 {
   font-size: 18px;
 }
 
+.my-room {
+  .room;
+  color: @sun_flower;
+  .join:hover {
+    color: @orange;
+  }
+}
+
+.system-room {
+  .room;
+  color: @orange;
+  .join:hover {
+    color: @sun_flower;
+  }
+}
+
+
 .base-panel {
   .title {
     font-weight: 300;
@@ -80,7 +112,6 @@ h2 {
 }
 
 .login-panel {
-  margin-top: 50px;
   .base-panel;
   background: @clouds;
   color: @wet_asphalt !important;
@@ -116,10 +147,34 @@ h2 {
 .chat-display {
   .base-panel;
   .sidebar-color;
+  margin-top: @title-lower-margin;
   height: @chat-display-height;
+  overflow: scroll;
 }
 
 .chat-form {
   .base-panel;
   .sidebar-color;
+}
+
+.screw-copyrights {
+  margin-top: 40px;
+  float: right;
+  font-weight: 300;
+}
+
+.message-handle {
+  color: @carrot;
+  font-family: "PT Mono";
+}
+
+.message-content {
+  font-family: "PT Mono";
+  color: @clouds;
+  font-size: larger;
+
+}
+
+.message-timestamp {
+  font-family: "PT Mono";
 }

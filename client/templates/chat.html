@@ -1,0 +1,9 @@
+<template name="message">
+    <p>
+        <span class="message-handle">{{ member.emails.[0].address }}</span>
+        <br />
+        <span class="message-timestamp">{{ timestamp.getHours }}:{{ timestamp.getMinute }}</span>
+    </p>
+    <div class="clearfix"></div>
+    <p class="message-content">{{ message }}</p>
+</template>
